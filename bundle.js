@@ -651,7 +651,7 @@
           i = n.n(a)()(o());
         i.push([
           t.id,
-          "body {\n    font-family: 'Roboto', sans-serif;\n    background-color: #f0f4f8;\n    margin: 0;\n    padding: 0;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height: 100vh;\n}\n\nheader {\n    background-color: #6c757d;\n    color: white;\n    padding: 1rem;\n    width: 100%;\n    text-align: center;\n}\n\nmain {\n    width: 90%;\n    max-width: 1200px;\n    padding: 1rem;\n    margin-top: 1rem;\n    margin-bottom: 5rem;\n    flex: 1;\n}\n\n#notesContainer {\n    display: grid;\n    gap: 1rem;\n    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));\n}\n\n.note {\n    background-color: white;\n    padding: 1rem;\n    border-radius: 8px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n    display: grid;\n    grid-template-rows: auto 1fr auto;\n    min-height: 200px;\n    box-sizing: border-box;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n.note-header h3 {\n    font-family: 'serif';\n    background-color: #f0f0f0;\n    padding: 8px;\n    border-radius: 8px;\n    margin: 0;\n    color: #6c757d;\n    border-bottom: 2px solid #6c757d;\n    text-align: center;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.note-body {\n    margin: 16px 0;\n    border-top: 1px solid #ccc;\n    padding-top: 16px;\n    box-sizing: border-box;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.note-footer {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 16px;\n}\n\n.note-id {\n    font-family: 'Serif';\n    font-size: 0.8em;\n    border: 1px solid #ddd;\n    padding: 4px 8px;\n    border-radius: 8px;\n}\n\n.note-date {\n    font-family: 'Serif';\n    font-size: 0.8em;\n}\n\n.note-buttons {\n    display: flex;\n    gap: 0.5rem;\n}\n\n.note-buttons button {\n    background: none;\n    border: none;\n    cursor: pointer;\n    font-size: 1.2em;\n    color: #6c757d;\n}\n\n.note-buttons button:hover {\n    color: #5a6268;\n}\n\nfooter {\n    background-color: #333;\n    color: white;\n    padding: 2rem;\n    text-align: center;\n    width: 100%;\n    position: relative;\n}\n\n.footer-container {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    max-width: 1200px;\n    margin: 0 auto;\n}\n\n.footer-section {\n    flex: 1;\n    min-width: 200px;\n    padding: 1rem;\n}\n\n.footer-section h4 {\n    margin-top: 0;\n}\n\n.footer-section a {\n    color: #fff;\n    text-decoration: none;\n    display: block;\n    margin: 0.5rem 0;\n}\n\n.footer-section a:hover {\n    text-decoration: underline;\n}\n\n@media (max-width: 600px) {\n    #notesContainer {\n        grid-template-columns: 1fr;\n    }\n\n    .note {\n        padding: 0.5rem;\n        min-height: 150px;\n    }\n\n    .footer-container {\n        flex-direction: column;\n        align-items: center;\n    }\n}\n",
+          "body {\n    font-family: 'Roboto', sans-serif;\n    background-color: #f0f4f8;\n    margin: 0;\n    padding: 0;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height: 100vh;\n}\n\nheader {\n    background-color: #6c757d;\n    color: white;\n    padding: 1rem;\n    width: 100%;\n    text-align: center;\n}\n\nmain {\n    width: 90%;\n    max-width: 1200px;\n    padding: 1rem;\n    margin-top: 1rem;\n    margin-bottom: 5rem;\n    flex: 1;\n}\n\n#notesContainer {\n    display: grid;\n    gap: 1rem;\n    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));\n    grid-auto-rows: auto; /* Kotak catatan akan menyesuaikan tinggi sesuai konten */\n}\n\n.note {\n    background-color: white;\n    padding: 1rem;\n    border-radius: 8px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n    display: flex;\n    flex-direction: column;\n    box-sizing: border-box;\n}\n\n.note-header h3 {\n    font-family: 'serif';\n    background-color: #f0f0f0;\n    padding: 8px;\n    border-radius: 8px;\n    margin: 0;\n    color: #6c757d;\n    border-bottom: 2px solid #6c757d;\n    text-align: center;\n    word-wrap: break-word; /* Membungkus teks panjang di judul */\n    white-space: normal; /* Mengizinkan teks untuk dibungkus ke baris berikutnya */\n}\n\n.note-body {\n    margin: 16px 0;\n    border-top: 1px solid #ccc;\n    padding: 16px; /* Padding kiri dan kanan yang lebih pantas */\n    box-sizing: border-box;\n    word-wrap: break-word; /* Membungkus teks panjang di isi catatan */\n    white-space: normal; /* Mengizinkan teks untuk dibungkus ke baris berikutnya */\n    text-align: justify; /* Rata kiri kanan */\n}\n\n.note-footer {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 16px;\n    margin-top: auto; /* Agar footer tetap di bawah */\n}\n\n.note-id {\n    font-family: 'Serif';\n    font-size: 0.8em;\n    border: 1px solid #ddd;\n    padding: 4px 8px;\n    border-radius: 8px;\n}\n\n.note-date {\n    font-family: 'Serif';\n    font-size: 0.8em;\n}\n\n.note-buttons {\n    display: flex;\n    gap: 0.5rem;\n}\n\n.note-buttons button {\n    background: none;\n    border: none;\n    cursor: pointer;\n    font-size: 1.2em;\n    color: #6c757d;\n}\n\n.note-buttons button:hover {\n    color: #5a6268;\n}\n\nfooter {\n    background-color: #333;\n    color: white;\n    padding: 2rem;\n    text-align: center;\n    width: 100%;\n    position: relative;\n}\n\n.footer-container {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    max-width: 1200px;\n    margin: 0 auto;\n}\n\n.footer-section {\n    flex: 1;\n    min-width: 200px;\n    padding: 1rem;\n}\n\n.footer-section h4 {\n    margin-top: 0;\n}\n\n.footer-section a {\n    color: #fff;\n    text-decoration: none;\n    display: block;\n    margin: 0.5rem 0;\n}\n\n.footer-section a:hover {\n    text-decoration: underline;\n}\n\n/* CSS untuk SweetAlert2 */\n.swal2-container {\n    z-index: 9999;\n}\n\n.swal2-popup {\n    width: 90vw; /* Lebar modal responsif */\n    max-width: 90vw; /* Maksimal lebar modal pada layar kecil */\n    box-sizing: border-box;\n    padding: 1rem;\n    border-radius: 10px;\n    font-family: 'Roboto', sans-serif;\n    margin: 0; /* Menghapus margin default */\n}\n\n.swal2-title {\n    font-size: 1.25rem; /* Ukuran font judul */\n}\n\n.swal2-html-container {\n    font-size: 0.9rem; /* Ukuran font teks */\n}\n\n.swal2-footer {\n    display: flex;\n    justify-content: center;\n}\n\n.swal2-confirm, .swal2-cancel {\n    padding: 0.5rem 1rem;\n    font-size: 0.9rem;\n    border-radius: 5px;\n}\n\n/* Responsif untuk layar kecil */\n@media (max-width: 600px) {\n    .swal2-popup {\n        width: 85vw; /* Lebar modal lebih kecil pada layar kecil */\n        max-width: 85vw; /* Maksimal lebar modal pada layar kecil */\n        padding: 0.5rem; /* Padding lebih kecil pada layar kecil */\n    }\n\n    .swal2-title {\n        font-size: 1.1rem; /* Ukuran font judul lebih kecil pada layar kecil */\n    }\n\n    .swal2-html-container {\n        font-size: 0.8rem; /* Ukuran font teks lebih kecil pada layar kecil */\n    }\n\n    .swal2-confirm, .swal2-cancel {\n        padding: 0.4rem 0.8rem;\n        font-size: 0.8rem;\n    }\n}\n\n@media (max-width: 600px) {\n    #notesContainer {\n        grid-template-columns: 1fr;\n    }\n\n    .note {\n        padding: 0.5rem;\n        min-height: 150px;\n    }\n\n    .note-body {\n        padding: 12px; /* Padding kiri dan kanan lebih kecil pada layar kecil */\n    }\n\n    .footer-container {\n        flex-direction: column;\n        align-items: center;\n    }\n}\n",
           '',
         ]);
         const s = i;
@@ -1261,14 +1261,14 @@
                 .concat(n ? ' Use "'.concat(n, '" instead.') : '')),
                 S.includes(e) || (S.push(e), E(e));
             },
-            L = function (t) {
+            P = function (t) {
               return 'function' == typeof t ? t() : t;
             },
-            P = function (t) {
+            L = function (t) {
               return t && 'function' == typeof t.toPromise;
             },
             j = function (t) {
-              return P(t) ? t.toPromise() : Promise.resolve(t);
+              return L(t) ? t.toPromise() : Promise.resolve(t);
             },
             A = function (t) {
               return t && Promise.resolve(t) === t;
@@ -1295,16 +1295,16 @@
             D = function () {
               return M(y['html-container']);
             },
-            H = function () {
+            z = function () {
               return M(y.image);
             },
-            q = function () {
+            H = function () {
               return M(y['progress-steps']);
             },
             R = function () {
               return M(y['validation-message']);
             },
-            z = function () {
+            q = function () {
               return B('.'.concat(y.actions, ' .').concat(y.confirm));
             },
             F = function () {
@@ -1703,7 +1703,7 @@
                   : ut(n),
                 tt(n, e, 'actions'),
                 (function (t, e, n) {
-                  var r = z(),
+                  var r = q(),
                     o = V(),
                     a = F();
                   r &&
@@ -1747,7 +1747,7 @@
               (t.className = y[e]),
               tt(t, n, ''.concat(e, 'Button'));
           }
-          var Lt = function (t, e) {
+          var Pt = function (t, e) {
             var n = T();
             n &&
               ((function (t, e) {
@@ -1773,7 +1773,7 @@
               })(n, e.grow),
               tt(n, e, 'container'));
           };
-          var Pt = { innerParams: new WeakMap(), domCache: new WeakMap() },
+          var Lt = { innerParams: new WeakMap(), domCache: new WeakMap() },
             jt = [
               'input',
               'file',
@@ -1939,7 +1939,7 @@
                 t
               );
             });
-          var Ht = function (t, e) {
+          var zt = function (t, e) {
               var n = D();
               n &&
                 (lt(n),
@@ -1952,7 +1952,7 @@
                 (function (t, e) {
                   var n = I();
                   if (n) {
-                    var r = Pt.innerParams.get(t),
+                    var r = Lt.innerParams.get(t),
                       o = !r || e.input !== r.input;
                     jt.forEach(function (t) {
                       var r = it(n, y[t]);
@@ -1965,7 +1965,7 @@
                   }
                 })(t, e));
             },
-            qt = function (t, e) {
+            Ht = function (t, e) {
               for (var n = 0, r = Object.entries(b); n < r.length; n++) {
                 var o = d(r[n], 2),
                   a = o[0],
@@ -1990,7 +1990,7 @@
                 )
                   n[r].style.backgroundColor = e;
             },
-            zt = function (t, e) {
+            qt = function (t, e) {
               if (e.icon || e.iconHtml) {
                 var n = t.innerHTML,
                   r = '';
@@ -2081,9 +2081,9 @@
                     Gt(r, e);
                 }
               })(0, e),
-                Lt(0, e),
+                Pt(0, e),
                 (function (t, e) {
-                  var n = q();
+                  var n = H();
                   if (n) {
                     var r = e.progressSteps,
                       o = e.currentProgressStep;
@@ -2109,10 +2109,10 @@
                   }
                 })(0, e),
                 (function (t, e) {
-                  var n = Pt.innerParams.get(t),
+                  var n = Lt.innerParams.get(t),
                     r = _();
                   if (r) {
-                    if (n && e.icon === n.icon) return zt(r, e), void qt(r, e);
+                    if (n && e.icon === n.icon) return qt(r, e), void Ht(r, e);
                     if (e.icon || e.iconHtml) {
                       if (e.icon && -1 === Object.keys(b).indexOf(e.icon))
                         return (
@@ -2125,14 +2125,14 @@
                           void ut(r)
                         );
                       ct(r),
-                        zt(r, e),
                         qt(r, e),
+                        Ht(r, e),
                         ot(r, e.showClass && e.showClass.icon);
                     } else ut(r);
                   }
                 })(t, e),
                 (function (t, e) {
-                  var n = H();
+                  var n = z();
                   n &&
                     (e.imageUrl
                       ? (ct(n, ''),
@@ -2161,7 +2161,7 @@
                     ft(n, e.showCloseButton),
                     n.setAttribute('aria-label', e.closeButtonAriaLabel || ''));
                 })(0, e),
-                Ht(t, e),
+                zt(t, e),
                 St(0, e),
                 (function (t, e) {
                   var n = Y();
@@ -2176,7 +2176,7 @@
             },
             Wt = function () {
               var t;
-              return null === (t = z()) || void 0 === t ? void 0 : t.click();
+              return null === (t = q()) || void 0 === t ? void 0 : t.click();
             },
             Zt = Object.freeze({
               cancel: 'cancel',
@@ -2223,7 +2223,7 @@
                         : 'Escape' === e.key && oe(e, t, n)));
             },
             ee = function (t, e) {
-              if (L(e.allowEnterKey)) {
+              if (P(e.allowEnterKey)) {
                 var n = et(I(), e.input);
                 if (
                   t.target &&
@@ -2248,7 +2248,7 @@
             },
             re = function (t) {
               var e = U(),
-                n = z(),
+                n = q(),
                 r = V(),
                 o = F();
               if (e && n && r && o) {
@@ -2272,7 +2272,7 @@
               }
             },
             oe = function (t, e, n) {
-              L(e.allowEscapeKey) && (t.preventDefault(), n(Zt.esc));
+              P(e.allowEscapeKey) && (t.preventDefault(), n(Zt.esc));
             },
             ae = {
               swalPromiseResolve: new WeakMap(),
@@ -2391,7 +2391,7 @@
           var we = function (t) {
             var e = I();
             if (!e) return !1;
-            var n = Pt.innerParams.get(t);
+            var n = Lt.innerParams.get(t);
             if (!n || Q(e, n.hideClass.popup)) return !1;
             at(e, n.showClass.popup), ot(e, n.hideClass.popup);
             var r = T();
@@ -2409,7 +2409,7 @@
           var ge = function (t) {
               t.isAwaitingPromise &&
                 (delete t.isAwaitingPromise,
-                Pt.innerParams.get(t) || t._destroy());
+                Lt.innerParams.get(t) || t._destroy());
             },
             ye = function (t) {
               return void 0 === t
@@ -2458,7 +2458,7 @@
                 r = G();
               n &&
                 r &&
-                (!e && pt(z()) && (e = z()),
+                (!e && pt(q()) && (e = q()),
                 ct(n),
                 e &&
                   (ut(e),
@@ -2472,14 +2472,14 @@
             Oe = function (t) {
               return t.checked ? t.value : null;
             },
-            Le = function (t) {
+            Pe = function (t) {
               return t.files && t.files.length
                 ? null !== t.getAttribute('multiple')
                   ? t.files
                   : t.files[0]
                 : null;
             },
-            Pe = function (t, e) {
+            Le = function (t, e) {
               var n = I();
               if (n) {
                 var r = function (t) {
@@ -2535,8 +2535,8 @@
                         }
                       })(n, Ae(t), e);
                 };
-                P(e.inputOptions) || A(e.inputOptions)
-                  ? (Ee(z()),
+                L(e.inputOptions) || A(e.inputOptions)
+                  ? (Ee(q()),
                     j(e.inputOptions).then(function (e) {
                       t.hideLoading(), r(e);
                     }))
@@ -2591,7 +2591,7 @@
             },
             Be = void 0,
             Me = function (t, e) {
-              var n = Pt.innerParams.get(t);
+              var n = Lt.innerParams.get(t);
               if (n.input) {
                 var r = t.getInput(),
                   o = (function (t, e) {
@@ -2603,7 +2603,7 @@
                       case 'radio':
                         return Oe(n);
                       case 'file':
-                        return Le(n);
+                        return Pe(n);
                       default:
                         return e.inputAutoTrim ? n.value.trim() : n.value;
                     }
@@ -2617,7 +2617,7 @@
                       ))
                     : 'deny' === e
                       ? _e(t, o)
-                      : He(t, o);
+                      : ze(t, o);
               } else
                 C(
                   'The "input" parameter is needed to be set when using returnInputValueOn'.concat(
@@ -2626,7 +2626,7 @@
                 );
             },
             Ie = function (t, e, n) {
-              var r = Pt.innerParams.get(t);
+              var r = Lt.innerParams.get(t);
               t.disableInput(),
                 Promise.resolve()
                   .then(function () {
@@ -2639,11 +2639,11 @@
                         ? t.showValidationMessage(r)
                         : 'deny' === n
                           ? _e(t, e)
-                          : He(t, e);
+                          : ze(t, e);
                   });
             },
             _e = function (t, e) {
-              var n = Pt.innerParams.get(t || Be);
+              var n = Lt.innerParams.get(t || Be);
               n.showLoaderOnDeny && Ee(V()),
                 n.preDeny
                   ? ((t.isAwaitingPromise = !0),
@@ -2670,8 +2670,8 @@
             De = function (t, e) {
               t.rejectPromise(e);
             },
-            He = function (t, e) {
-              var n = Pt.innerParams.get(t || Be);
+            ze = function (t, e) {
+              var n = Lt.innerParams.get(t || Be);
               n.showLoaderOnConfirm && Ee(),
                 n.preConfirm
                   ? (t.resetValidationMessage(),
@@ -2690,10 +2690,10 @@
                       }))
                   : Ne(t, e);
             };
-          function qe() {
-            var t = Pt.innerParams.get(this);
+          function He() {
+            var t = Lt.innerParams.get(this);
             if (t) {
-              var e = Pt.domCache.get(this);
+              var e = Lt.domCache.get(this);
               ut(e.loader),
                 X() ? t.icon && ct(_()) : Re(e),
                 at([e.popup, e.actions], y.loading),
@@ -2710,15 +2710,15 @@
             );
             e.length
               ? ct(e[0], 'inline-block')
-              : !pt(z()) && !pt(V()) && !pt(F()) && ut(t.actions);
+              : !pt(q()) && !pt(V()) && !pt(F()) && ut(t.actions);
           };
-          function ze() {
-            var t = Pt.innerParams.get(this),
-              e = Pt.domCache.get(this);
+          function qe() {
+            var t = Lt.innerParams.get(this),
+              e = Lt.domCache.get(this);
             return e ? et(e.popup, t.input) : null;
           }
           function Fe(t, e, n) {
-            var r = Pt.domCache.get(t);
+            var r = Lt.domCache.get(t);
             e.forEach(function (t) {
               r[t].disabled = n;
             });
@@ -2749,8 +2749,8 @@
             Ve(this.getInput(), !0);
           }
           function We(t) {
-            var e = Pt.domCache.get(this),
-              n = Pt.innerParams.get(this);
+            var e = Lt.domCache.get(this),
+              n = Lt.innerParams.get(this);
             J(e.validationMessage, t),
               (e.validationMessage.className = y['validation-message']),
               n.customClass &&
@@ -2765,7 +2765,7 @@
               ot(r, y.inputerror));
           }
           function Ze() {
-            var t = Pt.domCache.get(this);
+            var t = Lt.domCache.get(this);
             t.validationMessage && ut(t.validationMessage);
             var e = this.getInput();
             e &&
@@ -2943,12 +2943,12 @@
             };
           function sn(t) {
             var e = I(),
-              n = Pt.innerParams.get(this);
+              n = Lt.innerParams.get(this);
             if (e && !Q(e, n.hideClass.popup)) {
               var r = cn(t),
                 o = Object.assign({}, n, r);
               $t(this, o),
-                Pt.innerParams.set(this, o),
+                Lt.innerParams.set(this, o),
                 Object.defineProperties(this, {
                   params: {
                     value: Object.assign({}, this.params, t),
@@ -2973,8 +2973,8 @@
             );
           };
           function un() {
-            var t = Pt.domCache.get(this),
-              e = Pt.innerParams.get(this);
+            var t = Lt.domCache.get(this),
+              e = Lt.innerParams.get(this);
             e
               ? (t.popup &&
                   w.swalCloseEventFinishedCallback &&
@@ -2993,9 +2993,9 @@
             },
             dn = function (t) {
               t.isAwaitingPromise
-                ? (fn(Pt, t), (t.isAwaitingPromise = !0))
+                ? (fn(Lt, t), (t.isAwaitingPromise = !0))
                 : (fn(ae, t),
-                  fn(Pt, t),
+                  fn(Lt, t),
                   delete t.isAwaitingPromise,
                   delete t.disableButtons,
                   delete t.enableButtons,
@@ -3026,12 +3026,12 @@
               closeToast: me,
               disableButtons: Ue,
               disableInput: $e,
-              disableLoading: qe,
+              disableLoading: He,
               enableButtons: Ge,
               enableInput: Ye,
-              getInput: ze,
+              getInput: qe,
               handleAwaitingPromise: ge,
-              hideLoading: qe,
+              hideLoading: He,
               rejectPromise: ve,
               resetValidationMessage: Ze,
               showValidationMessage: We,
@@ -3076,7 +3076,7 @@
                 wn
                   ? (wn = !1)
                   : r.target === e.container &&
-                    L(t.allowOutsideClick) &&
+                    P(t.allowOutsideClick) &&
                     n(Zt.backdrop);
               };
             },
@@ -3121,7 +3121,7 @@
                   if (r) return void Cn[n].fire({ template: r });
                 }
             },
-            Ln = Object.freeze({
+            Pn = Object.freeze({
               __proto__: null,
               argsToParams: function (t) {
                 var e = {};
@@ -3180,7 +3180,7 @@
               getActions: U,
               getCancelButton: F,
               getCloseButton: W,
-              getConfirmButton: z,
+              getConfirmButton: q,
               getContainer: T,
               getDenyButton: V,
               getFocusableElements: Z,
@@ -3190,13 +3190,13 @@
               getIconContent: function () {
                 return M(y['icon-content']);
               },
-              getImage: H,
+              getImage: z,
               getInputLabel: function () {
                 return M(y['input-label']);
               },
               getLoader: G,
               getPopup: I,
-              getProgressSteps: q,
+              getProgressSteps: H,
               getTimerLeft: function () {
                 return w.timeout && w.timeout.getTimerLeft();
               },
@@ -3269,7 +3269,7 @@
                 return t && (t.running ? xn() : kn());
               },
             }),
-            Pn = (function () {
+            Ln = (function () {
               return i(
                 function t(e, n) {
                   r(this, t),
@@ -3344,7 +3344,7 @@
               return (
                 Array.from(t.querySelectorAll('swal-param')).forEach(
                   function (t) {
-                    Hn(t, ['name', 'value']);
+                    zn(t, ['name', 'value']);
                     var n = t.getAttribute('name'),
                       r = t.getAttribute('value');
                     n &&
@@ -3377,7 +3377,7 @@
               return (
                 Array.from(t.querySelectorAll('swal-button')).forEach(
                   function (t) {
-                    Hn(t, ['type', 'color', 'aria-label']);
+                    zn(t, ['type', 'color', 'aria-label']);
                     var n = t.getAttribute('type');
                     n &&
                       ['confirm', 'cancel', 'deny'].includes(n) &&
@@ -3399,7 +3399,7 @@
                 n = t.querySelector('swal-image');
               return (
                 n &&
-                  (Hn(n, ['src', 'width', 'height', 'alt']),
+                  (zn(n, ['src', 'width', 'height', 'alt']),
                   n.hasAttribute('src') &&
                     (e.imageUrl = n.getAttribute('src') || void 0),
                   n.hasAttribute('width') &&
@@ -3416,7 +3416,7 @@
                 n = t.querySelector('swal-icon');
               return (
                 n &&
-                  (Hn(n, ['type', 'color']),
+                  (zn(n, ['type', 'color']),
                   n.hasAttribute('type') && (e.icon = n.getAttribute('type')),
                   n.hasAttribute('color') &&
                     (e.iconColor = n.getAttribute('color')),
@@ -3428,7 +3428,7 @@
               var e = {},
                 n = t.querySelector('swal-input');
               n &&
-                (Hn(n, ['type', 'label', 'placeholder', 'value']),
+                (zn(n, ['type', 'label', 'placeholder', 'value']),
                 (e.input = n.getAttribute('type') || 'text'),
                 n.hasAttribute('label') &&
                   (e.inputLabel = n.getAttribute('label')),
@@ -3441,7 +3441,7 @@
                 r.length &&
                   ((e.inputOptions = {}),
                   r.forEach(function (t) {
-                    Hn(t, ['value']);
+                    zn(t, ['value']);
                     var n = t.getAttribute('value');
                     if (n) {
                       var r = t.innerHTML;
@@ -3457,7 +3457,7 @@
                 var o = e[r],
                   a = t.querySelector(o);
                 a &&
-                  (Hn(a, []),
+                  (zn(a, []),
                   (n[o.replace(/^swal-/, '')] = a.innerHTML.trim()));
               }
               return n;
@@ -3477,7 +3477,7 @@
                 e.includes(n) || E('Unrecognized element <'.concat(n, '>'));
               });
             },
-            Hn = function (t, e) {
+            zn = function (t, e) {
               Array.from(t.attributes).forEach(function (n) {
                 -1 === e.indexOf(n.name) &&
                   E([
@@ -3492,14 +3492,14 @@
                   ]);
               });
             },
-            qn = function (t) {
+            Hn = function (t) {
               var e = T(),
                 n = I();
               'function' == typeof t.willOpen && t.willOpen(n);
               var r = window.getComputedStyle(document.body).overflowY;
               Vn(e, n, t),
                 setTimeout(function () {
-                  zn(e, n);
+                  qn(e, n);
                 }, 10),
                 K() &&
                   (Fn(e, t.scrollbarPadding, r),
@@ -3531,7 +3531,7 @@
                 e.removeEventListener(Ct, Rn), (n.style.overflowY = 'auto');
               }
             },
-            zn = function (t, e) {
+            qn = function (t, e) {
               Ct && mt(e)
                 ? ((t.style.overflowY = 'hidden'), e.addEventListener(Ct, Rn))
                 : (t.style.overflowY = 'auto');
@@ -3667,7 +3667,7 @@
                         w.timeout && (w.timeout.stop(), delete w.timeout),
                         clearTimeout(w.restoreFocusTimeout);
                       var a = Kn(Sn);
-                      return $t(Sn, o), Pt.innerParams.set(Sn, o), Wn(Sn, a, o);
+                      return $t(Sn, o), Lt.innerParams.set(Sn, o), Wn(Sn, a, o);
                     },
                   },
                   {
@@ -3694,14 +3694,14 @@
                   ae.swalPromiseReject.set(t, o),
                   (e.confirmButton.onclick = function () {
                     !(function (t) {
-                      var e = Pt.innerParams.get(t);
+                      var e = Lt.innerParams.get(t);
                       t.disableButtons(),
-                        e.input ? Me(t, 'confirm') : He(t, !0);
+                        e.input ? Me(t, 'confirm') : ze(t, !0);
                     })(t);
                   }),
                   (e.denyButton.onclick = function () {
                     !(function (t) {
-                      var e = Pt.innerParams.get(t);
+                      var e = Lt.innerParams.get(t);
                       t.disableButtons(),
                         e.returnInputValueOnDeny ? Me(t, 'deny') : _e(t, !1);
                     })(t);
@@ -3736,16 +3736,16 @@
                   })(w, n, a),
                   (function (t, e) {
                     'select' === e.input || 'radio' === e.input
-                      ? Pe(t, e)
+                      ? Le(t, e)
                       : ['text', 'email', 'number', 'tel', 'textarea'].some(
                           function (t) {
                             return t === e.input;
                           }
                         ) &&
-                        (P(e.inputValue) || A(e.inputValue)) &&
-                        (Ee(z()), je(t, e));
+                        (L(e.inputValue) || A(e.inputValue)) &&
+                        (Ee(q()), je(t, e));
                   })(t, n),
-                  qn(n),
+                  Hn(n),
                   Xn(w, n, a),
                   Jn(e, n),
                   setTimeout(function () {
@@ -3789,21 +3789,21 @@
                 popup: I(),
                 container: T(),
                 actions: U(),
-                confirmButton: z(),
+                confirmButton: q(),
                 denyButton: V(),
                 cancelButton: F(),
                 loader: G(),
                 closeButton: W(),
                 validationMessage: R(),
-                progressSteps: q(),
+                progressSteps: H(),
               };
-              return Pt.domCache.set(t, e), e;
+              return Lt.domCache.set(t, e), e;
             },
             Xn = function (t, e, n) {
               var r = $();
               ut(r),
                 e.timer &&
-                  ((t.timeout = new Pn(function () {
+                  ((t.timeout = new Ln(function () {
                     n('timer'), delete t.timeout;
                   }, e.timer)),
                   e.timerProgressBar &&
@@ -3815,7 +3815,7 @@
             },
             Jn = function (t, e) {
               if (!e.toast)
-                return L(e.allowEnterKey)
+                return P(e.allowEnterKey)
                   ? void (Qn(t) || tr(t, e) || Xt(-1, 1))
                   : (O('allowEnterKey'), void er());
             },
@@ -3922,11 +3922,11 @@
           }
           ($n.prototype.disableButtons = Ue),
             ($n.prototype.enableButtons = Ge),
-            ($n.prototype.getInput = ze),
+            ($n.prototype.getInput = qe),
             ($n.prototype.disableInput = $e),
             ($n.prototype.enableInput = Ye),
-            ($n.prototype.hideLoading = qe),
-            ($n.prototype.disableLoading = qe),
+            ($n.prototype.hideLoading = He),
+            ($n.prototype.disableLoading = He),
             ($n.prototype.showValidationMessage = We),
             ($n.prototype.resetValidationMessage = Ze),
             ($n.prototype.close = me),
@@ -3936,7 +3936,7 @@
             ($n.prototype.rejectPromise = ve),
             ($n.prototype.update = sn),
             ($n.prototype._destroy = un),
-            Object.assign($n, Ln),
+            Object.assign($n, Pn),
             Object.keys(pn).forEach(function (t) {
               $n[t] = function () {
                 var e;
@@ -4128,7 +4128,7 @@
           (r.enumerable = r.enumerable || !1),
             (r.configurable = !0),
             'value' in r && (r.writable = !0),
-            Object.defineProperty(t, L(r.key), r);
+            Object.defineProperty(t, P(r.key), r);
         }
       }
       function E(t) {
@@ -4210,7 +4210,7 @@
           O(t)
         );
       }
-      function L(t) {
+      function P(t) {
         var e = (function (t) {
           if ('object' != x(t) || !t) return t;
           var e = t[Symbol.toPrimitive];
@@ -4223,7 +4223,7 @@
         })(t);
         return 'symbol' == x(e) ? e : e + '';
       }
-      var P = (function (t) {
+      var L = (function (t) {
         function e() {
           var t, n, r, o;
           return (
@@ -4270,7 +4270,7 @@
                   (t.shadowRoot.getElementById('noteContent').value = '');
               }
             }),
-            (r = L((r = 'handleSaveNote'))) in n
+            (r = P((r = 'handleSaveNote'))) in n
               ? Object.defineProperty(n, r, {
                   value: o,
                   enumerable: !0,
@@ -4459,7 +4459,7 @@
             for (r.method = a, r.arg = i; ; ) {
               var s = r.delegate;
               if (s) {
-                var c = L(s, r);
+                var c = P(s, r);
                 if (c) {
                   if (c === w) continue;
                   return c;
@@ -4481,7 +4481,7 @@
             }
           };
         }
-        function L(e, n) {
+        function P(e, n) {
           var r = n.method,
             o = e.iterator[r];
           if (o === t)
@@ -4491,7 +4491,7 @@
                 e.iterator.return &&
                 ((n.method = 'return'),
                 (n.arg = t),
-                L(e, n),
+                P(e, n),
                 'throw' === n.method)) ||
                 ('return' !== r &&
                   ((n.method = 'throw'),
@@ -4519,7 +4519,7 @@
               (n.delegate = null),
               w);
         }
-        function P(t) {
+        function L(t) {
           var e = { tryLoc: t[0] };
           1 in t && (e.catchLoc = t[1]),
             2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
@@ -4531,7 +4531,7 @@
         }
         function B(t) {
           (this.tryEntries = [{ tryLoc: 'root' }]),
-            t.forEach(P, this),
+            t.forEach(L, this),
             this.reset(!0);
         }
         function M(e) {
@@ -4843,10 +4843,10 @@
         )).apply(this, arguments);
       }
       function D(t) {
-        return H.apply(this, arguments);
+        return z.apply(this, arguments);
       }
-      function H() {
-        return (H = B(
+      function z() {
+        return (z = B(
           A().mark(function t(e) {
             var n, r;
             return A().wrap(function (t) {
@@ -4878,7 +4878,7 @@
           })
         )).apply(this, arguments);
       }
-      function q(t) {
+      function H(t) {
         var e = document.createElement('div');
         return (
           (e.className = 'note'),
@@ -4909,7 +4909,7 @@
           e
         );
       }
-      customElements.define('add-note', P), n(318), n(754), n(439);
+      customElements.define('add-note', L), n(318), n(754), n(439);
       var R = {
           update: null,
           begin: null,
@@ -4924,7 +4924,7 @@
           autoplay: !0,
           timelineOffset: 0,
         },
-        z = {
+        q = {
           duration: 1e3,
           delay: 0,
           endDelay: 0,
@@ -5006,7 +5006,7 @@
         key: function (t) {
           return (
             !R.hasOwnProperty(t) &&
-            !z.hasOwnProperty(t) &&
+            !q.hasOwnProperty(t) &&
             'targets' !== t &&
             'keyframes' !== t
           );
@@ -5569,7 +5569,7 @@
           }
         );
       }
-      function Lt(t) {
+      function Pt(t) {
         var e = Ot(t);
         return e.map(function (t, n) {
           return {
@@ -5580,7 +5580,7 @@
           };
         });
       }
-      function Pt(t, e) {
+      function Lt(t, e) {
         var n = st(e);
         if (
           (/^spring/.test(n.easing) && (n.duration = Z(n.easing)), $.arr(t))
@@ -5626,7 +5626,7 @@
         },
       };
       function At(t, e) {
-        Lt(t).forEach(function (t) {
+        Pt(t).forEach(function (t) {
           for (var n in e) {
             var r = dt(e[n], t),
               o = t.target,
@@ -5799,7 +5799,7 @@
         }
         var c = (function (t) {
           var e = ct(R, t),
-            n = ct(z, t),
+            n = ct(q, t),
             r = (function (t, e) {
               var n = [],
                 r = e.keyframes;
@@ -5841,10 +5841,10 @@
                   e
                 )),
               e))
-                $.key(o) && n.push({ name: o, tweens: Pt(e[o], t) });
+                $.key(o) && n.push({ name: o, tweens: Lt(e[o], t) });
               return n;
             })(n, t),
-            o = Lt(t.targets),
+            o = Pt(t.targets),
             a = Tt(o, r),
             i = Bt(a, n),
             s = Mt;
@@ -6027,25 +6027,25 @@
             c.reset(), c.play();
           }),
           (c.remove = function (t) {
-            qt(Ot(t), c);
+            Ht(Ot(t), c);
           }),
           c.reset(),
           c.autoplay && c.play(),
           c
         );
       }
-      function Ht(t, e) {
+      function zt(t, e) {
         for (var n = e.length; n--; )
           it(t, e[n].animatable.target) && e.splice(n, 1);
       }
-      function qt(t, e) {
+      function Ht(t, e) {
         var n = e.animations,
           r = e.children;
-        Ht(t, n);
+        zt(t, n);
         for (var o = r.length; o--; ) {
           var a = r[o],
             i = a.animations;
-          Ht(t, i), i.length || a.children.length || r.splice(o, 1);
+          zt(t, i), i.length || a.children.length || r.splice(o, 1);
         }
         n.length || r.length || e.pause();
       }
@@ -6054,7 +6054,7 @@
         (Dt.suspendWhenDocumentHidden = !0),
         (Dt.running = It),
         (Dt.remove = function (t) {
-          for (var e = Ot(t), n = It.length; n--; ) qt(e, It[n]);
+          for (var e = Ot(t), n = It.length; n--; ) Ht(e, It[n]);
         }),
         (Dt.get = vt),
         (Dt.set = At),
@@ -6137,7 +6137,7 @@
               }
               o > -1 && It.splice(o, 1);
               for (var s = 0; s < a.length; s++) i(a[s]);
-              var c = ut(n, ct(z, t));
+              var c = ut(n, ct(q, t));
               c.targets = c.targets || t.targets;
               var u = e.duration;
               (c.autoplay = !1),
@@ -6167,9 +6167,9 @@
           return Math.floor(Math.random() * (e - t + 1)) + t;
         });
       const Rt = Dt;
-      function zt(t) {
+      function qt(t) {
         return (
-          (zt =
+          (qt =
             'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
               ? function (t) {
                   return typeof t;
@@ -6182,7 +6182,7 @@
                     ? 'symbol'
                     : typeof t;
                 }),
-          zt(t)
+          qt(t)
         );
       }
       function Ft() {
@@ -6263,7 +6263,7 @@
             if ('throw' !== c.type) {
               var u = c.arg,
                 l = u.value;
-              return l && 'object' == zt(l) && r.call(l, '__await')
+              return l && 'object' == qt(l) && r.call(l, '__await')
                 ? e.resolve(l.__await).then(
                     function (t) {
                       n('next', t, i, s);
@@ -6306,7 +6306,7 @@
             for (r.method = a, r.arg = i; ; ) {
               var s = r.delegate;
               if (s) {
-                var c = L(s, r);
+                var c = P(s, r);
                 if (c) {
                   if (c === w) continue;
                   return c;
@@ -6328,7 +6328,7 @@
             }
           };
         }
-        function L(e, n) {
+        function P(e, n) {
           var r = n.method,
             o = e.iterator[r];
           if (o === t)
@@ -6338,7 +6338,7 @@
                 e.iterator.return &&
                 ((n.method = 'return'),
                 (n.arg = t),
-                L(e, n),
+                P(e, n),
                 'throw' === n.method)) ||
                 ('return' !== r &&
                   ((n.method = 'throw'),
@@ -6366,7 +6366,7 @@
               (n.delegate = null),
               w);
         }
-        function P(t) {
+        function L(t) {
           var e = { tryLoc: t[0] };
           1 in t && (e.catchLoc = t[1]),
             2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
@@ -6378,7 +6378,7 @@
         }
         function A(t) {
           (this.tryEntries = [{ tryLoc: 'root' }]),
-            t.forEach(P, this),
+            t.forEach(L, this),
             this.reset(!0);
         }
         function T(e) {
@@ -6396,7 +6396,7 @@
               return (a.next = a);
             }
           }
-          throw new TypeError(zt(e) + ' is not iterable');
+          throw new TypeError(qt(e) + ' is not iterable');
         }
         return (
           (g.prototype = y),
@@ -6656,7 +6656,7 @@
                               t.title.toLowerCase().includes(i) ||
                               t.body.toLowerCase().includes(i)
                             ) {
-                              var e = q(t);
+                              var e = H(t);
                               o.appendChild(e);
                             }
                           }),
@@ -6989,7 +6989,7 @@
             for (r.method = a, r.arg = i; ; ) {
               var s = r.delegate;
               if (s) {
-                var c = L(s, r);
+                var c = P(s, r);
                 if (c) {
                   if (c === w) continue;
                   return c;
@@ -7011,7 +7011,7 @@
             }
           };
         }
-        function L(e, n) {
+        function P(e, n) {
           var r = n.method,
             o = e.iterator[r];
           if (o === t)
@@ -7021,7 +7021,7 @@
                 e.iterator.return &&
                 ((n.method = 'return'),
                 (n.arg = t),
-                L(e, n),
+                P(e, n),
                 'throw' === n.method)) ||
                 ('return' !== r &&
                   ((n.method = 'throw'),
@@ -7049,7 +7049,7 @@
               (n.delegate = null),
               w);
         }
-        function P(t) {
+        function L(t) {
           var e = { tryLoc: t[0] };
           1 in t && (e.catchLoc = t[1]),
             2 in t && ((e.finallyLoc = t[2]), (e.afterLoc = t[3])),
@@ -7061,7 +7061,7 @@
         }
         function A(t) {
           (this.tryEntries = [{ tryLoc: 'root' }]),
-            t.forEach(P, this),
+            t.forEach(L, this),
             this.reset(!0);
         }
         function T(e) {
@@ -7337,6 +7337,14 @@
                           icon: 'success',
                           title: 'Catatan ditambahkan',
                           text: 'Catatan berhasil di tambahkan!',
+                          position: 'top-end',
+                          toast: !0,
+                          timer: 3e3,
+                          timerProgressBar: !0,
+                          showConfirmButton: !1,
+                          width: '90vw',
+                          padding: '1rem',
+                          customClass: { container: 'swal-container' },
                         }),
                         ee(!1),
                         Ut('', !1),
@@ -7348,6 +7356,14 @@
                           icon: 'error',
                           title: 'Gagal untuk menambah catatan',
                           text: o.message,
+                          position: 'top-end',
+                          toast: !0,
+                          timer: 3e3,
+                          timerProgressBar: !0,
+                          showConfirmButton: !1,
+                          width: '90vw',
+                          padding: '1rem',
+                          customClass: { container: 'swal-container' },
                         }),
                         t.abrupt('return', null)
                       );
@@ -7362,6 +7378,14 @@
                           icon: 'error',
                           title: 'Error',
                           text: 'Ups terjadi masalah saat menambah catatan!',
+                          position: 'top-end',
+                          toast: !0,
+                          timer: 3e3,
+                          timerProgressBar: !0,
+                          showConfirmButton: !1,
+                          width: '90vw',
+                          padding: '1rem',
+                          customClass: { container: 'swal-container' },
                         }),
                         console.error('Error adding note:', t.t0),
                         t.abrupt('return', null)
@@ -7374,6 +7398,241 @@
               t,
               null,
               [[0, 18]]
+            );
+          })
+        )).apply(this, arguments);
+      }
+      function ae() {
+        return (ae = Qt(
+          Xt().mark(function t(n) {
+            var r, o;
+            return Xt().wrap(
+              function (t) {
+                for (;;)
+                  switch ((t.prev = t.next)) {
+                    case 0:
+                      return (
+                        (t.prev = 0),
+                        (t.next = 3),
+                        fetch(''.concat(te, '/notes/').concat(n), {
+                          method: 'DELETE',
+                        })
+                      );
+                    case 3:
+                      return (r = t.sent), (t.next = 6), r.json();
+                    case 6:
+                      'success' === (o = t.sent).status
+                        ? (e().fire({
+                            icon: 'success',
+                            title: 'Catatan Dihapus',
+                            text: 'Catatan berhasil di hapus!',
+                            position: 'top-end',
+                            toast: !0,
+                            timer: 3e3,
+                            timerProgressBar: !0,
+                            showConfirmButton: !1,
+                            width: '90vw',
+                            padding: '1rem',
+                            customClass: { container: 'swal-container' },
+                          }),
+                          Ut('', ne()))
+                        : e().fire({
+                            icon: 'error',
+                            title: 'Gagal untuk menghapus catatan!',
+                            text: o.message,
+                            position: 'top-end',
+                            toast: !0,
+                            timer: 3e3,
+                            timerProgressBar: !0,
+                            showConfirmButton: !1,
+                            width: '90vw',
+                            padding: '1rem',
+                            customClass: { container: 'swal-container' },
+                          }),
+                        (t.next = 14);
+                      break;
+                    case 10:
+                      (t.prev = 10),
+                        (t.t0 = t.catch(0)),
+                        e().fire({
+                          icon: 'error',
+                          title: 'Error',
+                          text: 'Ups terjadi masalah saat menghapus catatan!',
+                          position: 'top-end',
+                          toast: !0,
+                          timer: 3e3,
+                          timerProgressBar: !0,
+                          showConfirmButton: !1,
+                          width: '90vw',
+                          padding: '1rem',
+                          customClass: { container: 'swal-container' },
+                        }),
+                        console.error('Error deleting note:', t.t0);
+                    case 14:
+                    case 'end':
+                      return t.stop();
+                  }
+              },
+              t,
+              null,
+              [[0, 10]]
+            );
+          })
+        )).apply(this, arguments);
+      }
+      function ie() {
+        return (ie = Qt(
+          Xt().mark(function t(n) {
+            var r, o;
+            return Xt().wrap(
+              function (t) {
+                for (;;)
+                  switch ((t.prev = t.next)) {
+                    case 0:
+                      return (
+                        (t.prev = 0),
+                        (t.next = 3),
+                        fetch(''.concat(te, '/notes/').concat(n, '/archive'), {
+                          method: 'POST',
+                        })
+                      );
+                    case 3:
+                      return (r = t.sent), (t.next = 6), r.json();
+                    case 6:
+                      'success' === (o = t.sent).status
+                        ? (e().fire({
+                            icon: 'success',
+                            title: 'Catatan di arsipkan',
+                            text: 'Catatan berhasil diarsipkan!',
+                            position: 'top-end',
+                            toast: !0,
+                            timer: 3e3,
+                            timerProgressBar: !0,
+                            showConfirmButton: !1,
+                            width: '90vw',
+                            padding: '1rem',
+                            customClass: { container: 'swal-container' },
+                          }),
+                          Ut('', ne()))
+                        : e().fire({
+                            icon: 'error',
+                            title: 'Gagal untuk mengarsipkan catatan!',
+                            text: o.message,
+                            position: 'top-end',
+                            toast: !0,
+                            timer: 3e3,
+                            timerProgressBar: !0,
+                            showConfirmButton: !1,
+                            width: '90vw',
+                            padding: '1rem',
+                            customClass: { container: 'swal-container' },
+                          }),
+                        (t.next = 14);
+                      break;
+                    case 10:
+                      (t.prev = 10),
+                        (t.t0 = t.catch(0)),
+                        e().fire({
+                          icon: 'error',
+                          title: 'Error',
+                          text: 'Ups terjadi masalah saat mengarsipkan catatan!',
+                          position: 'top-end',
+                          toast: !0,
+                          timer: 3e3,
+                          timerProgressBar: !0,
+                          showConfirmButton: !1,
+                          width: '90vw',
+                          padding: '1rem',
+                          customClass: { container: 'swal-container' },
+                        }),
+                        console.error('Error archiving note:', t.t0);
+                    case 14:
+                    case 'end':
+                      return t.stop();
+                  }
+              },
+              t,
+              null,
+              [[0, 10]]
+            );
+          })
+        )).apply(this, arguments);
+      }
+      function se() {
+        return (se = Qt(
+          Xt().mark(function t(n) {
+            var r, o;
+            return Xt().wrap(
+              function (t) {
+                for (;;)
+                  switch ((t.prev = t.next)) {
+                    case 0:
+                      return (
+                        (t.prev = 0),
+                        (t.next = 3),
+                        fetch(
+                          ''.concat(te, '/notes/').concat(n, '/unarchive'),
+                          { method: 'POST' }
+                        )
+                      );
+                    case 3:
+                      return (r = t.sent), (t.next = 6), r.json();
+                    case 6:
+                      'success' === (o = t.sent).status
+                        ? (e().fire({
+                            icon: 'success',
+                            title: 'Catatan diaktifkan',
+                            text: 'Catatan berhasil diaktifkan!',
+                            position: 'top-end',
+                            toast: !0,
+                            timer: 3e3,
+                            timerProgressBar: !0,
+                            showConfirmButton: !1,
+                            width: '90vw',
+                            padding: '1rem',
+                            customClass: { container: 'swal-container' },
+                          }),
+                          Ut('', ne()))
+                        : e().fire({
+                            icon: 'error',
+                            title: 'Gagal untuk mengaktifkan catatan!',
+                            text: o.message,
+                            position: 'top-end',
+                            toast: !0,
+                            timer: 3e3,
+                            timerProgressBar: !0,
+                            showConfirmButton: !1,
+                            width: '90vw',
+                            padding: '1rem',
+                            customClass: { container: 'swal-container' },
+                          }),
+                        (t.next = 14);
+                      break;
+                    case 10:
+                      (t.prev = 10),
+                        (t.t0 = t.catch(0)),
+                        e().fire({
+                          icon: 'error',
+                          title: 'Error',
+                          text: 'Ups terjadi masalah saat mengaktifkan catatan!',
+                          position: 'top-end',
+                          toast: !0,
+                          timer: 3e3,
+                          timerProgressBar: !0,
+                          showConfirmButton: !1,
+                          width: '90vw',
+                          padding: '1rem',
+                          customClass: { container: 'swal-container' },
+                        }),
+                        console.error('Error unarchiving note:', t.t0);
+                    case 14:
+                    case 'end':
+                      return t.stop();
+                  }
+              },
+              t,
+              null,
+              [[0, 10]]
             );
           })
         )).apply(this, arguments);
@@ -7407,6 +7666,21 @@
         window.addEventListener('filter-notes', function (t) {
           var e = t.detail;
           ee(e), Ut('', e);
+        }),
+        window.addEventListener('archive-note', function (t) {
+          !(function (t) {
+            ie.apply(this, arguments);
+          })(t.detail);
+        }),
+        window.addEventListener('unarchive-note', function (t) {
+          !(function (t) {
+            se.apply(this, arguments);
+          })(t.detail);
+        }),
+        window.addEventListener('delete-note', function (t) {
+          !(function (t) {
+            ae.apply(this, arguments);
+          })(t.detail);
         }),
         Ut('', ne());
     })();
